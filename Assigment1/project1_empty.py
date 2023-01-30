@@ -28,17 +28,30 @@ class Neuron:
         self.output = 0
         self.pd = np.array(self.input_num+1)
 
+
+
         print('constructor')    
         
     #This method returns the activation of the net
     def activate(self,net):
-        print("Hello World")
+        if self.activate == "logistic":
+            return 1 / (1 + np.exp(net))
+        else:
+            return net
+
         print('activate')   
         
     #Calculate the output of the neuron should save the input and output for back-propagation.   
     def calculate(self,input):
+        net = 0
+        self.input = input
+        for i in range(len(self.weights-1)):
+            net += self.weights[i] * self.input[i]
+        net += self.weights[-1]
+
+        return self.activate(net=net)
+
         print('calculate')
-        print("This is my calculations")
 
     #This method returns the derivative of the activation function with respect to the net   
     def activationderivative(self):
