@@ -24,6 +24,7 @@ class Neuron:
     #Calculate the output of the neuron should save the input and output for back-propagation.   
     def calculate(self,input):
         print('calculate')
+        print("This is my calculations")
 
     #This method returns the derivative of the activation function with respect to the net   
     def activationderivative(self):
