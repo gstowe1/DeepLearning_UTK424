@@ -19,6 +19,7 @@ class Neuron:
         
     #This method returns the activation of the net
     def activate(self,net):
+        print("Hello World")
         print('activate')   
         
     #Calculate the output of the neuron should save the input and output for back-propagation.   
