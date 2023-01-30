@@ -15,6 +15,19 @@ loss:
 class Neuron:
     #initilize neuron with activation type, number of inputs, learning rate, and possibly with set weights
     def __init__(self,activation, input_num, lr, weights=None):
+        self.activation = activation
+        self.input_num = input_num
+        self.lr = lr
+        if weights is None:
+            self.weights = np.random.rand(self.input_num+1)
+        else:
+            self.weights = weights
+
+        # Storing info for backpropagation
+        self.input = np.array(self.input_num+1)
+        self.output = 0
+        self.pd = np.array(self.input_num+1)
+
         print('constructor')    
         
     #This method returns the activation of the net
