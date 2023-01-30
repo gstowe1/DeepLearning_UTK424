@@ -103,11 +103,28 @@ class FullyConnected:
 #An entire neural network        
 class NeuralNetwork:
     #initialize with the number of layers, number of neurons in each layer (vector), input size, activation (for each layer), the loss function, the learning rate and a 3d matrix of weights weights (or else initialize randomly)
-    def __init__(self,numOfLayers,numOfNeurons, inputSize, activation, loss, lr, weights=None):
+    def __init__(self,numOfLayers,numOfNeurons, input_num, activation, loss, lr, weights=None):
+        
+        #if weights is none, create a 3d array of random weights. 
+        if weights is None:
+            weights = np.random.rand(numOfLayers, numOfNeurons,input_num)
+            print(weights)
+        
+        #Create a list of layers. 
+        self.layers = []
+        for i in range(len(weights)):
+            self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
         print('constructor') 
     
     #Given an input, calculate the output (using the layers calculate() method)
     def calculate(self,input):
+        if len(input) !=  self.input_num:
+            return "Length of input is != input_sum"
+        else:
+            outputs = np.array(np.zeros(len(self.layer)))
+            for i in range(len(self.layer)):
+                outputs[i] = self.layers[i].calculate(input)
+            return outputs        
         print('constructor')
         
     #Given a predicted output and ground truth output simply return the loss (depending on the loss function)
@@ -126,7 +143,7 @@ if __name__=="__main__":
     if (len(sys.argv)<2):
         print('a good place to test different parts of your code')
 
-        #Testing
+        #Testing FullyConnected Class
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
         for i in range(len(w)):
             connectedNeuron = FullyConnected(2,0,3,0,w[i]).calculate([0.35,0.5,0.73])
@@ -135,10 +152,9 @@ if __name__=="__main__":
         connectedNeuron = FullyConnected(5,0,3,0,None).calculate([0.35,0.5,0.73])
         print(connectedNeuron)
 
-
-
-
-
+        #Testing NeuralNetwork Class
+        # w=np.array([[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]])
+        # N = NeuralNetwork(2,2,3,1,1,1,w)
 
     elif (sys.argv[1]=='example'):
         print('run example from class (single step)')
