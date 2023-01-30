@@ -24,9 +24,9 @@ class Neuron:
             self.weights = weights
 
         # Storing info for backpropagation
-        self.input = np.array(self.input_num+1)
+        self.input = np.array(np.zeros(self.input_num+1))
         self.output = 0
-        self.pd = np.array(self.input_num+1)
+        self.pd = np.array(np.zeros(self.input_num+1))
 
 
 
@@ -70,11 +70,24 @@ class Neuron:
 class FullyConnected:
     #initialize with the number of neurons in the layer, their activation,the input size, the leraning rate and a 2d matrix of weights (or else initilize randomly)
     def __init__(self,numOfNeurons, activation, input_num, lr, weights=None):
+        
+        self.layer = []
+        if weights != None:
+            for i in range(len(weights)):
+                self.layer.append(Neuron(activation,input_num,lr,weights[i]))
+        else:
+            weights = np.random.rand(numOfNeurons,input_num)
+            for i in range(len(weights)):
+                self.layer.append(Neuron(activation,input_num,lr,weights[i]))
+
         print('constructor') 
         
         
     #calcualte the output of all the neurons in the layer and return a vector with those values (go through the neurons and call the calcualte() method)      
     def calculate(self, input):
+        outputs = np.array(np.zeros(len(self.layer)))
+        for i in range(len(self.layer)):
+            outputs[i] = self.layer[i].calculate(input)
         print('calculate') 
         
             
@@ -109,6 +122,12 @@ if __name__=="__main__":
     if (len(sys.argv)<2):
         print('a good place to test different parts of your code')
         
+        #Testing
+        connectedNeuron = FullyConnected(2,"x",2,0,None)
+
+
+
+
     elif (sys.argv[1]=='example'):
         print('run example from class (single step)')
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
