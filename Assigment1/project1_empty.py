@@ -75,14 +75,13 @@ class FullyConnected:
         self.layer = []
         
         if weights is not None:
-            for i in range(len(weights)):
+            for i in range(numOfNeurons):
                 self.layer.append(Neuron(activation,input_num,lr,weights[i]))
         else:
-            weights = np.random.rand(numOfNeurons,input_num)
-            for i in range(len(weights)):
-                self.layer.append(Neuron(activation,input_num,lr,weights[i]))
+            #weights = np.random.rand(numOfNeurons,input_num)
+            for i in range(numOfNeurons):
+                self.layer.append(Neuron(activation,input_num,lr,None))
 
-        # print('constructor') 
         
         
     #calcualte the output of all the neurons in the layer and return a vector with those values (go through the neurons and call the calcualte() method)      
@@ -105,16 +104,17 @@ class NeuralNetwork:
     #initialize with the number of layers, number of neurons in each layer (vector), input size, activation (for each layer), the loss function, the learning rate and a 3d matrix of weights weights (or else initialize randomly)
     def __init__(self,numOfLayers,numOfNeurons, input_num, activation, loss, lr, weights=None):
         
-        #if weights is none, create a 3d array of random weights. 
-        if weights is None:
-            weights = np.random.rand(numOfLayers, numOfNeurons,input_num)
-            print(weights)
-        
         #Create a list of layers. 
         self.layers = []
-        for i in range(len(weights)):
-            self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
-        print('constructor') 
+
+        #if weights is none, create a 3d array of random weights. 
+        if weights is not None:
+            for i in range(numOfLayers):
+                self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
+        else:
+            for i in range(numOfLayers):
+                self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,None))
+
     
     #Given an input, calculate the output (using the layers calculate() method)
     def calculate(self,input):
