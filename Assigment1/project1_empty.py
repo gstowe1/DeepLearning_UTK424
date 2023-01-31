@@ -46,7 +46,7 @@ class Neuron:
     def calculate(self,input):
         net = 0
         self.input = input
-        for i in range(len(self.weights-1)):
+        for i in range(len(self.weights)-1):
             net += self.input[i] * self.weights[i] 
         net += self.weights[-1]
 
@@ -109,22 +109,20 @@ class NeuralNetwork:
 
         #if weights is none, create a 3d array of random weights. 
         if weights is not None:
-            for i in range(numOfLayers):
+            for i in range(0,numOfLayers):
+                print(weights[i])
                 self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
         else:
-            for i in range(numOfLayers):
-                self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,None))
+            self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,None))
 
     
     #Given an input, calculate the output (using the layers calculate() method)
-    def calculate(self,input):
-        if len(input) !=  self.input_num:
-            return "Length of input is != input_sum"
-        else:
-            outputs = np.array(np.zeros(len(self.layer)))
-            for i in range(len(self.layer)):
-                outputs[i] = self.layers[i].calculate(input)
-            return outputs        
+    def calculate(self,input):       
+        outputs = np.array(np.zeros(len(self.layers)))
+        for i in range(len(self.layers)):
+            # outputs[i] = self.layers[i].calculate(input)
+            print(self.layers[i])
+        return outputs        
         print('constructor')
         
     #Given a predicted output and ground truth output simply return the loss (depending on the loss function)
@@ -153,12 +151,13 @@ if __name__=="__main__":
         print(connectedNeuron)
 
         #Testing NeuralNetwork Class
-        # w=np.array([[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]])
-        # N = NeuralNetwork(2,2,3,1,1,1,w)
+        N = NeuralNetwork(2,2,3,1,1,1,w).calculate([0.2,1.1,1])
+        print(N)
+
 
     elif (sys.argv[1]=='example'):
         print('run example from class (single step)')
-        w=np.array([[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]])
+        w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
         x=np.array([0.05,0.1])
         i=np.array([0.01,0.99])
         
