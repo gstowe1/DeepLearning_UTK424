@@ -34,11 +34,10 @@ class Neuron:
         
     #This method returns the activation of the net
     def activate(self,net):
-        if self.activate == 1:
+        if self.activation == 1:
             return 1 / (1 + np.exp(net))
         else:
             return net
-            print('activate')   
 
         
         
@@ -106,28 +105,36 @@ class NeuralNetwork:
         
         #Create a list of layers. 
         self.layers = []
+        self.loss = loss
+        self.numOfNeurons = numOfNeurons
 
         #if weights is none, create a 3d array of random weights. 
-        if weights is not None:
-            for i in range(0,numOfLayers):
-                print(weights[i])
+        for i in range(0,numOfLayers):
+            if weights is not None:
                 self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
-        else:
-            self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,None))
+            else:
+                self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,None))
+
 
     
     #Given an input, calculate the output (using the layers calculate() method)
     def calculate(self,input):       
-        outputs = np.array(np.zeros(len(self.layers)))
+        outputs = np.array(np.zeros(self.numOfNeurons))
+
         for i in range(len(self.layers)):
-            # outputs[i] = self.layers[i].calculate(input)
-            print(self.layers[i])
+            outputs = self.layers[i].calculate(input)
+            input = outputs
+
         return outputs        
-        print('constructor')
         
     #Given a predicted output and ground truth output simply return the loss (depending on the loss function)
     def calculateloss(self,yp,y):
-        print('calculate')
+        # Sum of Square Error
+        if self.loss == 0:
+            return 0.5 * (y - yp)**2
+        # Cross Entropy
+        else:
+            return -y*np.log(yp) - (1-y)*np.log(1-yp)
     
     #Given a predicted output and ground truth output simply return the derivative of the loss (depending on the loss function)        
     def lossderiv(self,yp,y):
@@ -144,14 +151,15 @@ if __name__=="__main__":
         #Testing FullyConnected Class
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
         for i in range(len(w)):
-            connectedNeuron = FullyConnected(2,0,3,0,w[i]).calculate([0.35,0.5,0.73])
+            connectedNeuron = FullyConnected(2,0,2,0,w[i]).calculate([0.2,1.1])
             print(connectedNeuron)
 
-        connectedNeuron = FullyConnected(5,0,3,0,None).calculate([0.35,0.5,0.73])
+        connectedNeuron = FullyConnected(5,0,2,0,None).calculate([0.35,0.5])
         print(connectedNeuron)
 
         #Testing NeuralNetwork Class
-        N = NeuralNetwork(2,2,3,1,1,1,w).calculate([0.2,1.1,1])
+        print('Testing NeuralNetwork Class')
+        N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
         print(N)
 
 
