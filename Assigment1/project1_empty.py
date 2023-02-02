@@ -196,42 +196,43 @@ if __name__=="__main__":
         desire = [0.01,0.99]
         # print('a good place to test different parts of your code')
 
-        print("Testing Neuron Class")
-        h1 = Neuron(1,2,0.5,w[0][0]).calculate(class_inputs)
-        h2 = Neuron(1,2,0.5,w[0][1]).calculate(class_inputs)
-        print(f"h1: {h1}")
-        print(f"h2: {h2}")
-        print(f"o1: {Neuron(1,2,0.5,w[1][0]).calculate([h1,h2])}")
-        print(f"o2: {Neuron(1,2,0.5,w[1][1]).calculate([h1,h2])}")
+        # print("Testing Neuron Class")
+        # h1 = Neuron(1,2,0.5,w[0][0]).calculate(class_inputs)
+        # h2 = Neuron(1,2,0.5,w[0][1]).calculate(class_inputs)
+        # print(f"h1: {h1}")
+        # print(f"h2: {h2}")
+        # print(f"o1: {Neuron(1,2,0.5,w[1][0]).calculate([h1,h2])}")
+        # print(f"o2: {Neuron(1,2,0.5,w[1][1]).calculate([h1,h2])}")
 
-        #Testing FullyConnected Class
-        print('\nTesting Layer Class')
+        # #Testing FullyConnected Class
+        # print('\nTesting Layer Class')
       
-        inputs = class_inputs
-        for i in range(len(w)):
-            firstLayer = FullyConnected(2,1,2,0,w[i]).calculate(inputs)
-            print(f'Layer {i+1}: {firstLayer}')
-            inputs = firstLayer
+        # inputs = class_inputs
+        # for i in range(len(w)):
+        #     firstLayer = FullyConnected(2,1,2,0,w[i]).calculate(inputs)
+        #     print(f'Layer {i+1}: {firstLayer}')
+        #     inputs = firstLayer
 
         #Testing NeuralNetwork Class
         print('\nTesting NeuralNetwork Class')
-        # N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
+
         N = NeuralNetwork(2,2,2,1,0,0.5,w)
-        N.train(class_inputs,desire)
+        print(f"{0} steps {N.calculate(class_inputs)}")
+
+        for i in range(1,1001,1):
+            N.train(class_inputs,desire)    
+            print(f"{i} steps {N.calculate(class_inputs)}")
 
     elif (sys.argv[1]=='example'):
         print('run example from class (single step)')
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
-        x=np.array([0.05,0.1])
-        i=np.array([0.01,0.99])
+        class_inputs = [.05,.10]
+        desire = [0.01,0.99]
 
         N = NeuralNetwork(2,2,2,1,0,0.5,w)
-        N.train(x,i)
-        print(f"Single step {N.calculate(x)}")
+        N.train(class_inputs,desire)
+        print(f"Single step {N.calculate(class_inputs)}")
 
-        for i in range(1000):
-            N.train(x,i)
-        print(f"1000 steps {N.calculate(x)}")
         
     elif(sys.argv[1]=='and'):
         print('learn and')
