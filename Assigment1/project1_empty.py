@@ -107,8 +107,9 @@ class NeuralNetwork:
         self.layers = []
         self.loss = loss
         self.numOfNeurons = numOfNeurons
-
-        #if weights is none, create a 3d array of random weights. 
+        self.numOfLayers = numOfLayers
+        self.weights = weights
+        #if weights is non  e, create a 3d array of random weights. 
         for i in range(0,numOfLayers):
             if weights is not None:
                 self.layers.append(FullyConnected(numOfNeurons,activation,input_num,lr,weights[i]))
@@ -138,29 +139,45 @@ class NeuralNetwork:
     
     #Given a predicted output and ground truth output simply return the derivative of the loss (depending on the loss function)        
     def lossderiv(self,yp,y):
-        print('lossderiv')
+        if self.loss == 0:
+            deriv = -(y- yp)
+            return deriv
+        else:
+            deriv = -y/yp + (1-y)/(1-yp)
+            return deriv
+            print('lossderiv')
     
     #Given a single input and desired output preform one step of backpropagation (including a forward pass, getting the derivative of the loss, and then calling calcwdeltas for layers with the right values         
     def train(self,x,y):
-        print('train')
+        yp = self.calculate(x)
+        lossderiv = self.lossderiv(yp,y)
+        loss = self.calculateloss(yp,y)
+
+        for i in range(self.numOfLayers-1,-1,-1):
+            self.layers[i].calcwdeltas()
 
 if __name__=="__main__":
     if (len(sys.argv)<2):
-        print('a good place to test different parts of your code')
+        w=np.array([[[.15,.2,.35],[.25,.30,.35]],[[.4,.45,.6],[.5,.55,.6]]])
+        inputs = [.05,.10]
+        desire = [0.01,0.99]
+        # print('a good place to test different parts of your code')
 
         #Testing FullyConnected Class
-        w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
-        for i in range(len(w)):
-            connectedNeuron = FullyConnected(2,0,2,0,w[i]).calculate([0.2,1.1])
-            print(connectedNeuron)
+      
+        # for i in range(len(w)):
+        #     connectedNeuron = FullyConnected(2,0,2,0,w[i]).calculate([0.2,1.1])
+        #     print(connectedNeuron)
 
-        connectedNeuron = FullyConnected(5,0,2,0,None).calculate([0.35,0.5])
-        print(connectedNeuron)
+        # connectedNeuron = FullyConnected(5,0,2,0,None).calculate([0.35,0.5])
+        # print(connectedNeuron)
 
         #Testing NeuralNetwork Class
         print('Testing NeuralNetwork Class')
-        N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
-        print(N)
+        # N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
+        N = NeuralNetwork(2,2,2,0,0,1,w).train(inputs,desire)
+
+        # print(N)
 
 
     elif (sys.argv[1]=='example'):
