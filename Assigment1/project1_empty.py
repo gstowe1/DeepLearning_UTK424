@@ -49,20 +49,37 @@ class Neuron:
             net += self.input[i] * self.weights[i] 
         net += self.weights[-1]
 
-        return self.activate(net)
+        self.output = self.activate(net)
+
+        return self.output
 
 
     #This method returns the derivative of the activation function with respect to the net   
     def activationderivative(self):
-        print('activationderivative')   
+        #derivative of sigmoid function is f(x)*(1-f(x))
+        if self.activation == 1:
+            return self.output * (1 - self.output)
+        #derivative of linear function is 1
+        else:
+            return 1
     
     #This method calculates the partial derivative for each weight and returns the delta*w to be used in the previous layer
     def calcpartialderivative(self, wtimesdelta):
-        print('calcpartialderivative') 
+        #This method calculates the partial derivative for each weight and returns the delta*w to be used in the previous layer
+
+        #calculate the partial derivative for each weight
+        for i in range(len(self.weights)-1):
+            self.pd[i] = wtimesdelta * self.activationderivative() * self.input[i]
+        #calculate the partial derivative for the bias
+        self.pd[-1] = wtimesdelta * self.activationderivative()
+
+        #return the delta*w to be used in the previous layer
+        return wtimesdelta * self.activationderivative() * self.weights[:-1]
+
     
     #Simply update the weights using the partial derivatives and the leranring weight
     def updateweight(self):
-        print('updateweight')
+        self.weights = self.weights - self.lr * self.pd
 
         
 #A fully connected layer        
