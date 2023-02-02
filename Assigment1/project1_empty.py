@@ -182,7 +182,7 @@ class NeuralNetwork:
         deltas = self.lossderiv(yp,y)
         for i in range(len(self.layers)-1,-1,-1):
             deltas = self.layers[i].calcwdeltas(deltas)
-        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {deltas}')
+        print(f'Train: x = {x}, y = {y}, Out = {yp}, Etotal = {loss.sum()}, lossderiv = {deltas}')
 
         return loss
 
@@ -214,7 +214,10 @@ if __name__=="__main__":
         #Testing NeuralNetwork Class
         print('\nTesting NeuralNetwork Class')
         # N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
-        N = NeuralNetwork(2,2,2,1,0,1,w).train(class_inputs,desire)
+        N = NeuralNetwork(2,2,2,1,0,1,w)
+        N.train(class_inputs,desire)
+        N.train(class_inputs,desire)
+
 
         # print(N)
 
