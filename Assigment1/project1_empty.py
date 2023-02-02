@@ -81,7 +81,7 @@ class Neuron:
     def updateweight(self):
         old_weights = self.weights
         self.weights = self.weights - self.lr * self.pd
-        print(f'{old_weights} -> {self.weights}')
+        #print(f'{old_weights} -> {self.weights}')
 
         
 #A fully connected layer        
@@ -184,7 +184,7 @@ class NeuralNetwork:
         deltas = self.lossderiv(yp,y)
         for i in range(len(self.layers)-1,-1,-1):
             deltas = self.layers[i].calcwdeltas(deltas)
-        print(f'Train: x = {x}, y = {y}, Out = {yp}, Etotal = {loss.sum()}, lossderiv = {deltas}')
+        #print(f'Train: x = {x}, y = {y}, Out = {yp}, Etotal = {loss.sum()}, lossderiv = {deltas}')
 
         return loss
 
@@ -219,18 +219,66 @@ if __name__=="__main__":
         N = NeuralNetwork(2,2,2,1,0,0.5,w)
         N.train(class_inputs,desire)
 
-
-        # print(N)
-
-
     elif (sys.argv[1]=='example'):
         print('run example from class (single step)')
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
         x=np.array([0.05,0.1])
         i=np.array([0.01,0.99])
+
+        N = NeuralNetwork(2,2,2,1,0,0.5,w)
+        N.train(x,i)
+        print(f"Single step {N.calculate(x)}")
+
+        for i in range(1000):
+            N.train(x,i)
+        print(f"1000 steps {N.calculate(x)}")
         
     elif(sys.argv[1]=='and'):
         print('learn and')
+        N = NeuralNetwork(1,1,2,1,0,0.5, None)
+
+        for i in range(1000):
+            N.train([0,0],[0])
+            N.train([0,1],[0])
+            N.train([1,0],[0])
+            N.train([1,1],[1])
+            if i%100 == 0:
+                print(f"Epoch {i}:")
+                print(f"    0 and 0: {N.calculate([0,0])}")
+                print(f"    0 and 1: {N.calculate([0,1])}")
+                print(f"    1 and 0: {N.calculate([1,0])}")
+                print(f"    1 and 1: {N.calculate([1,1])}")
         
     elif(sys.argv[1]=='xor'):
         print('learn xor')
+
+        print("SINGLE PRECEPTRON")
+        N = NeuralNetwork(1,1,2,1,0,0.5, None)
+
+        for i in range(1000):
+            N.train([0,0],[0])
+            N.train([0,1],[1])
+            N.train([1,0],[1])
+            N.train([1,1],[0])
+            if i%100 == 0:
+                print(f"Epoch {i}:")
+                print(f"    0 and 0: {N.calculate([0,0])}")
+                print(f"    0 and 1: {N.calculate([0,1])}")
+                print(f"    1 and 0: {N.calculate([1,0])}")
+                print(f"    1 and 1: {N.calculate([1,1])}")
+
+        print("WITH HIDDEN LAYER")
+        N = NeuralNetwork(2,2,2,1,0,0.5, None)
+
+        for i in range(2000):
+            N.train([0,0],[0,0])
+            N.train([0,1],[1,0])
+            N.train([1,0],[1,0])
+            N.train([1,1],[0,0])
+            if i%100 == 0:
+                print(f"Epoch {i}:")
+                print(f"    0 and 0: {N.calculate([0,0])}")
+                print(f"    0 and 1: {N.calculate([0,1])}")
+                print(f"    1 and 0: {N.calculate([1,0])}")
+                print(f"    1 and 1: {N.calculate([1,1])}")
+        
