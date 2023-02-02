@@ -147,13 +147,21 @@ class NeuralNetwork:
     
     #Given a single input and desired output preform one step of backpropagation (including a forward pass, getting the derivative of the loss, and then calling calcwdeltas for layers with the right values         
     def train(self,x,y):
+        #forward propogation
         yp = self.calculate(x)
-        lossderiv = self.lossderiv(yp,y)
+        #calculate the loss
         loss = self.calculateloss(yp,y)
+        #back propogation
+        delta = self.lossderiv(yp,y)
+        for i in range(len(self.layers)-1,-1,-1):
+            delta = self.layers[i].calcpartialderivative(delta)
+        #update weights
+        for i in range(len(self.layers)):
+            self.layers[i].updateweight()
+        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {delta}')
 
-        #for i in range(self.numOfLayers-1,-1,-1):
-            #self.layers[i].calcwdeltas()
-        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {lossderiv}')
+        return loss
+
 
 if __name__=="__main__":
     if (len(sys.argv)<2):
