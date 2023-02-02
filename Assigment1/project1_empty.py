@@ -122,7 +122,6 @@ class NeuralNetwork:
         outputs = np.array(np.zeros(self.numOfNeurons))
 
         for i in range(len(self.layers)):
-            print(input)
             outputs = self.layers[i].calculate(input)
             input = outputs
 
@@ -145,7 +144,6 @@ class NeuralNetwork:
         else:
             deriv = -y/yp + (1-y)/(1-yp)
             return deriv
-            print('lossderiv')
     
     #Given a single input and desired output preform one step of backpropagation (including a forward pass, getting the derivative of the loss, and then calling calcwdeltas for layers with the right values         
     def train(self,x,y):
@@ -155,18 +153,18 @@ class NeuralNetwork:
 
         #for i in range(self.numOfLayers-1,-1,-1):
             #self.layers[i].calcwdeltas()
-        print(f'Train: y = {y}, yp = {yp}, loss = {loss}, lossderiv = {lossderiv}')
+        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {lossderiv}')
 
 if __name__=="__main__":
     if (len(sys.argv)<2):
         w=np.array([[[.15,.2,.35],[.25,.30,.35]],[[.4,.45,.6],[.5,.55,.6]]])
-        inputs = [.05,.10]
+        class_inputs = [.05,.10]
         desire = [0.01,0.99]
         # print('a good place to test different parts of your code')
 
         print("Testing Neuron Class")
-        h1 = Neuron(1,2,0.5,w[0][0]).calculate(inputs)
-        h2 = Neuron(1,2,0.5,w[0][1]).calculate(inputs)
+        h1 = Neuron(1,2,0.5,w[0][0]).calculate(class_inputs)
+        h2 = Neuron(1,2,0.5,w[0][1]).calculate(class_inputs)
         print(f"h1: {h1}")
         print(f"h2: {h2}")
         print(f"o1: {Neuron(1,2,0.5,w[1][0]).calculate([h1,h2])}")
@@ -175,18 +173,16 @@ if __name__=="__main__":
         #Testing FullyConnected Class
         print('\nTesting Layer Class')
       
+        inputs = class_inputs
         for i in range(len(w)):
             firstLayer = FullyConnected(2,1,2,0,w[i]).calculate(inputs)
             print(f'Layer {i+1}: {firstLayer}')
             inputs = firstLayer
 
-        # connectedNeuron = FullyConnected(5,0,2,0,None).calculate([0.35,0.5])
-        # print(connectedNeuron)
-
         #Testing NeuralNetwork Class
         print('\nTesting NeuralNetwork Class')
         # N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
-        N = NeuralNetwork(2,2,2,1,0,1,w).train(inputs,desire)
+        N = NeuralNetwork(2,2,2,1,0,1,w).train(class_inputs,desire)
 
         # print(N)
 
