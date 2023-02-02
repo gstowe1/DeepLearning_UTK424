@@ -88,6 +88,7 @@ class FullyConnected:
     def __init__(self,numOfNeurons, activation, input_num, lr, weights=None):
         self.input_num = input_num
         self.layer = []
+        self.list_of_deltaw = []
         
         if weights is not None:
             for i in range(numOfNeurons):
@@ -111,7 +112,15 @@ class FullyConnected:
             
     #given the next layer's w*delta, should run through the neurons calling calcpartialderivative() for each (with the correct value), sum up its ownw*delta, and then update the wieghts (using the updateweight() method). I should return the sum of w*delta.          
     def calcwdeltas(self, wtimesdelta):
-        print('calcwdeltas') 
+
+        for i in range(len(self.layer)):
+            self.list_of_deltaw.append(self.layer[i].calcpartialderivative(wtimesdelta[i]))
+            self.layer[i].updateweight()
+
+        return np.sum(self.list_of_deltaw, axis=0)
+
+        
+
            
         
 #An entire neural network        
@@ -168,14 +177,12 @@ class NeuralNetwork:
         yp = self.calculate(x)
         #calculate the loss
         loss = self.calculateloss(yp,y)
+
         #back propogation
-        delta = self.lossderiv(yp,y)
+        deltas = self.lossderiv(yp,y)
         for i in range(len(self.layers)-1,-1,-1):
-            delta = self.layers[i].calcpartialderivative(delta)
-        #update weights
-        for i in range(len(self.layers)):
-            self.layers[i].updateweight()
-        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {delta}')
+            deltas = self.layers[i].calcwdeltas(deltas)
+        print(f'Train: x = {x}, y = {y}, yp = {yp}, loss = {loss}, lossderiv = {deltas}')
 
         return loss
 
