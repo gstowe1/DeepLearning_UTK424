@@ -79,7 +79,9 @@ class Neuron:
     
     #Simply update the weights using the partial derivatives and the leranring weight
     def updateweight(self):
+        old_weights = self.weights
         self.weights = self.weights - self.lr * self.pd
+        print(f'{old_weights} -> {self.weights}')
 
         
 #A fully connected layer        
@@ -214,8 +216,7 @@ if __name__=="__main__":
         #Testing NeuralNetwork Class
         print('\nTesting NeuralNetwork Class')
         # N = NeuralNetwork(2,2,2,0,1,1,w).calculate([0.2,1.1])
-        N = NeuralNetwork(2,2,2,1,0,1,w)
-        N.train(class_inputs,desire)
+        N = NeuralNetwork(2,2,2,1,0,0.5,w)
         N.train(class_inputs,desire)
 
 
