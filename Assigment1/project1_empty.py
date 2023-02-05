@@ -4,7 +4,7 @@ import sys
 For this entire file there are a few constants:
 activation:
 0 - linear
-1 - logistic (only one supported)
+1 - logistic
 loss:
 0 - sum of square errors
 1 - binary cross entropy
@@ -223,20 +223,26 @@ if __name__=="__main__":
             N.train(class_inputs,desire)    
             print(f"{i} steps {N.calculate(class_inputs)}")
 
-    elif (sys.argv[1]=='example'):
+    elif (sys.argv[2]=='example'):
         print('run example from class (single step)')
         w=np.array([[[.15,.2,.35],[.25,.3,.35]],[[.4,.45,.6],[.5,.55,.6]]])
         class_inputs = [.05,.10]
         desire = [0.01,0.99]
 
-        N = NeuralNetwork(2,2,2,1,0,0.5,w)
+        N = NeuralNetwork(2,2,2,1,0,float(sys.argv[1]),w)
         N.train(class_inputs,desire)
-        print(f"Single step {N.calculate(class_inputs)}")
+
+        # Print out according to rubric
+        print(f"Single step")
+        print(f"    Output: {N.calculate(class_inputs)}")
+        for i in range(len(N.layers)):
+            for j in range(len(N.layers[i].layer)):
+                print(f"    Layer {i+1} Neuron {j+1} weights: {N.layers[i].layer[j].weights}")
 
         
-    elif(sys.argv[1]=='and'):
+    elif(sys.argv[2]=='and'):
         print('learn and')
-        N = NeuralNetwork(1,1,2,1,0,0.5, None)
+        N = NeuralNetwork(1,1,2,1,0,float(sys.argv[1]), None)
 
         for i in range(1000):
             N.train([0,0],[0])
@@ -250,11 +256,11 @@ if __name__=="__main__":
                 print(f"    1 and 0: {N.calculate([1,0])}")
                 print(f"    1 and 1: {N.calculate([1,1])}")
         
-    elif(sys.argv[1]=='xor'):
+    elif(sys.argv[2]=='xor'):
         print('learn xor')
 
         print("SINGLE PRECEPTRON")
-        N = NeuralNetwork(1,1,2,1,0,0.5, None)
+        N = NeuralNetwork(1,1,2,1,0,float(sys.argv[1]), None)
 
         for i in range(1000):
             N.train([0,0],[0])
@@ -269,7 +275,7 @@ if __name__=="__main__":
                 print(f"    1 and 1: {N.calculate([1,1])}")
 
         print("WITH HIDDEN LAYER")
-        N = NeuralNetwork(2,2,2,1,0,0.5, None)
+        N = NeuralNetwork(2,2,2,1,0,float(sys.argv[1]), None)
 
         for i in range(2000):
             N.train([0,0],[0,0])
