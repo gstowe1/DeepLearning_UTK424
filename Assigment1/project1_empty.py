@@ -127,9 +127,9 @@ class NeuralNetwork:
         #if weights is non  e, create a 3d array of random weights. 
         for i in range(0,numOfLayers):
             if weights is not None:
-                self.layers.append(FullyConnected(numOfNeurons[i],activation,input_num[i],lr,weights[i]))
+                self.layers.append(FullyConnected(numOfNeurons[i],activation[i],input_num[i],lr,weights[i]))
             else:
-                self.layers.append(FullyConnected(numOfNeurons[i],activation,input_num[i],lr,None))
+                self.layers.append(FullyConnected(numOfNeurons[i],activation[i],input_num[i],lr,None))
     
     #Given an input, calculate the output (using the layers calculate() method)
     def calculate(self,input):       
@@ -177,7 +177,7 @@ if __name__=="__main__":
         input_nums = [2,2]
         num_neurons = [2,2]
         num_layers = 2
-
+        activations = [1,1]
         w=[np.array([[.15,.2,.35],[.25,.3,.35]]),np.array([[.4,.45,.6],[.5,.55,.6]])]
         class_inputs = np.array([.05,.10])
         desire = np.array([0.01,0.99])
@@ -206,7 +206,7 @@ if __name__=="__main__":
 
         losses = []
         for lr in np.linspace(0.1, 0.9, 9):
-            N = NeuralNetwork(num_layers,num_neurons,input_nums,1,0,lr,w)
+            N = NeuralNetwork(num_layers,num_neurons,input_nums,activations,0,lr,w)
             losses_for_lr = []
             for i in range(0,1000,1):
                 N.train(class_inputs,desire)  
@@ -230,45 +230,42 @@ if __name__=="__main__":
         input_nums = [2,2]
         num_neurons = [2,2]
         num_layers = 2
+        activations = [1,1]
 
         w=[np.array([[.15,.2,.35],[.25,.3,.35]]),np.array([[.4,.45,.6],[.5,.55,.6]])]
         class_inputs = [.05,.10]
         desire = [0.01,0.99]
 
-        N = NeuralNetwork(num_layers,num_neurons,input_nums,1,0,float(sys.argv[1]),w)
+        N = NeuralNetwork(num_layers,num_neurons,input_nums,activations,0,float(sys.argv[1]),w)
         N.train(class_inputs,desire)
 
         # Print out according to rubric
         print(f"Single step")
-        print(f"    Output: {N.calculate(class_inputs)}")
+        print(f"    Output: {[round(w,3) for w in N.calculate(class_inputs)]}")
         for i in range(len(N.layers)):
             for j in range(len(N.layers[i].layer)):
-                print(f"    Layer {i+1} Neuron {j+1} weights: {N.layers[i].layer[j].weights}")
-
-        for i in range(1,1001,1):
-            N.train(class_inputs,desire)    
-            print(f"{i} steps {N.calculate(class_inputs)}")
-
+                # print(f"    Layer {i+1} Neuron {j+1} weights: {N.layers[i].layer[j].weights}")
+                print(f"    Layer {i+1} Neuron {j+1} weights: {[round(w,2) for w in N.layers[i].layer[j].weights]}")
         
     elif(sys.argv[2]=='and'):
         print('learn and')
         input_nums = [2]
         num_neurons = [1]
         num_layers = 1
+        activations = [1]
+        N = NeuralNetwork(num_layers,num_neurons,input_nums,activations,1,float(sys.argv[1]), None)
 
-        N = NeuralNetwork(num_layers,num_neurons,input_nums,1,0,float(sys.argv[1]), None)
-
-        for i in range(1000):
-            N.train([0,0],[0])
-            N.train([1,0],[0])
-            N.train([1,1],[1])
-            N.train([0,1],[0])
+        for i in range(1100):
+            N.train([0,0],np.array([0]))
+            N.train([1,0],np.array([0]))
+            N.train([1,1],np.array([1]))
+            N.train([0,1],np.array([0]))
             if i%100 == 0:
                 print(f"Epoch {i}:")
-                print(f"    0 and 0: {N.calculate([0,0])}")
-                print(f"    0 and 1: {N.calculate([0,1])}")
-                print(f"    1 and 0: {N.calculate([1,0])}")
-                print(f"    1 and 1: {N.calculate([1,1])}")
+                print(f"    0 and 0: {round(N.calculate([0,0])[0], 2)}")
+                print(f"    0 and 1: {round(N.calculate([0,1])[0], 2)}")
+                print(f"    1 and 0: {round(N.calculate([1,0])[0], 2)}")
+                print(f"    1 and 1: {round(N.calculate([1,1])[0], 2)}")
 
 
         print('After training:')
@@ -279,32 +276,21 @@ if __name__=="__main__":
 
         for i in range(len(N.layers)):
             for j in range(len(N.layers[i].layer)):
-                print(f"    Layer {i+1} Neuron {j+1} weights: {N.layers[i].layer[j].weights}")
+                print(f"    Layer {i+1} Neuron {j+1} weights: {[round(w,2) for w in N.layers[i].layer[j].weights]}")
 
         
     elif(sys.argv[2]=='xor'):
         print('learn xor')
-        input_nums = [2,2,3,3]
-        num_neurons = [2,3,3,1]
-        num_layers = 4
+        input_nums = [2,2,3]
+        num_neurons = [2,3,1]
+        num_layers = 3
+        activations = [1,1,1,1]
 
         print("SINGLE PRECEPTRON")
-        N = NeuralNetwork(1,[1],2,1,0,float(sys.argv[1]), None)
 
-        for i in range(1000):
-            N.train([0,0],[0])
-            N.train([0,1],[1])
-            N.train([1,0],[1])
-            N.train([1,1],[0])
-            if i%100 == 0:
-                print(f"Epoch {i}:")
-                print(f"    0 and 0: {N.calculate([0,0])}")
-                print(f"    0 and 1: {N.calculate([0,1])}")
-                print(f"    1 and 0: {N.calculate([1,0])}")
-                print(f"    1 and 1: {N.calculate([1,1])}")
 
         print("WITH HIDDEN LAYER")
-        N = NeuralNetwork(num_layers, num_neurons,input_nums,1,0,float(sys.argv[1]), None)
+        N = NeuralNetwork(num_layers, num_neurons,input_nums,activations,0,float(sys.argv[1]), None)
 
         for i in range(2000):
             N.train(np.array([0,0]),np.array([0]))
@@ -313,8 +299,8 @@ if __name__=="__main__":
             N.train(np.array([1,1]),np.array([0]))
             if i%100 == 0:
                 print(f"Epoch {i}:")
-                print(f"    0 and 0: {N.calculate([0,0])}")
-                print(f"    0 and 1: {N.calculate([0,1])}")
-                print(f"    1 and 0: {N.calculate([1,0])}")
-                print(f"    1 and 1: {N.calculate([1,1])}")
+                print(f"    0 and 0: {N.calculate(np.array([0,0]))}")
+                print(f"    0 and 1: {N.calculate(np.array([0,1]))}")
+                print(f"    1 and 0: {N.calculate(np.array([1,0]))}")
+                print(f"    1 and 1: {N.calculate(np.array([1,1]))}")
         
