@@ -140,22 +140,30 @@ class NeuralNetwork:
         return outputs        
         
     #Given a predicted output and ground truth output simply return the loss (depending on the loss function)
-    def calculateloss(self,yp,y): #expectes np arrays
+    def calculateloss(self,yp,y): #expectes np arrays of the same size
         # Sum of Square Error
+        losses = []
         if self.loss == 0:
-            return 0.5 * (y - yp)**2
+            for i in range(len(yp)):
+                losses.append(0.5 * (y[i] - yp[i])**2)
+            return sum(losses)
         # Cross Entropy
         else:
-            return -y*np.log(yp) - (1-y)*np.log(1-yp)
-    
+            for i in range(len(yp)):
+                losses.append(-y[i] * np.log(yp[i]) + -(1 - y[i]) * np.log(1 - yp[i]))
+            return sum(losses)
+
     #Given a predicted output and ground truth output simply return the derivative of the loss (depending on the loss function)        
     def lossderiv(self,yp,y):
+        loss_derivs = []
         if self.loss == 0:
-            deriv = -(y- yp)
-            return deriv
+            for i in range(len(yp)):
+                loss_derivs.append(yp[i] - y[i])
+            return loss_derivs
         else:
-            deriv = -y/yp + (1-y)/(1-yp)
-            return deriv
+            for i in range(len(yp)):
+                loss_derivs.append(-y[i]/yp[i] + (1-y[i])/(1-yp[i]))
+            return loss_derivs
     
     #Given a single input and desired output preform one step of backpropagation (including a forward pass, getting the derivative of the loss, and then calling calcwdeltas for layers with the right values         
     def train(self,x,y): #expects np arrays
