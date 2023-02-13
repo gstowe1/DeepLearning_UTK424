@@ -166,6 +166,10 @@ class NeuralNetwork:
         
     #Given a predicted output and ground truth output simply return the loss (depending on the loss function)
     def calculateloss(self,yp,y):
+        if type(yp)  != np.ndarray:
+            yp = np.array(yp)
+        if type(y) != np.ndarray:
+            y = np.array(y)
         #Square Loss
         if self.loss == 0:
             return 0.5 * (y - yp)**2
@@ -210,7 +214,9 @@ if __name__=="__main__":
         
         N = NeuralNetwork( numOfLayers=2 , numOfNeurons=[2,2], input_num=[2,2], activation=[1,1],loss=0, lr=0.5,weights=w)
 
-        print("Feed Forword Output: ",N.calculate([0.05,0.1]))
+        print("Inital Output: ",N.calculate([0.05,0.1]))
+        print("Expected Output: [0.01,0.99]")
+        
         for i in range(1000):
             N.train([0.05,0.1],[0.01,0.99])
         print("After 1000 Epochs Output: ",N.calculate([0.05,0.1]))
