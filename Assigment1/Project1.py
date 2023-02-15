@@ -272,12 +272,12 @@ if __name__=="__main__":
 
         N = NeuralNetwork(num_layers, num_neurons,input_nums,activations,1,float(sys.argv[1]), None)
 
-        for i in range(5100):
+        for i in range(10000):
             N.train(np.array([0,0]),np.array([0]))
             N.train(np.array([0,1]),np.array([1]))
             N.train(np.array([1,0]),np.array([1]))
             N.train(np.array([1,1]),np.array([0]))
-            if i%100 == 0:
+            if i%1000 == 0:
                 print(f"Epoch {i}:")
                 print(f"    0 and 0: {np.around(N.calculate(np.array([0,0])),3)[0]}")
                 print(f"    0 and 1: {np.around(N.calculate(np.array([0,1])),3)[0]}")
