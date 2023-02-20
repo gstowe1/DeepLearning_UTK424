@@ -242,14 +242,15 @@ class NeuralNetwork:
             if len(self.layers) == 0:
                 input_num_for_layer = self.input_num
             else:
-                w = int((self.layers[-1].numOfNeurons / self.layers[-1].num_kernel)**0.5)
-                h = int((self.layers[-1].numOfNeurons / self.layers[-1].num_kernel)**0.5)
+                w = int((len(self.layers[-1].neurons) / self.layers[-1].num_kernel)**0.5)
+                h = int((len(self.layers[-1].neurons[0]) / self.layers[-1].num_kernel)**0.5)
                 d = self.layers[-1].num_kernel
                 input_num_for_layer = [w,h,d]
-
             layer = Convolutional(num_kernel, kernel_size, activation, input_num_for_layer, self.lr, weights)
+
         elif layer_type == 'flatten':
             layer = Flatten()
+
         else:
             #FullyConnected layer args: (self,numOfNeurons, activation, input_num, lr, weights=None)
             #Figure out input num from current last layer
