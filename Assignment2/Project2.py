@@ -144,17 +144,38 @@ class Convolutional:
         self.weights = weights
         self.neurons = []
 
-        for i in range(self.num_kernel):
-            if self.weights is None:
-                self.neurons.append(Neuron(activation=self.activation,input_num=self.kernel_size,lr=self.lr,weights=None))
-            else:
-                self.neurons.append(Neuron(activation=self.activation,input_num=self.kernel_size,lr=self.lr,weights=weights[i]))
+        n_array_w = input_nums[0] - kernel_size + 1
+        n_array_h = input_nums[1] - kernel_size + 1
+        n_array_d = num_kernel
+
+        if self.weights is None:
+            n_weights = np.random.rand(num_kernel, (self.kernel_size * self.kernel_size)*input_nums[2] + 1)
+        else:
+            n_weights = self.weights
+
+
+        for i in range(n_array_w):
+            hs = []
+            for j in range(n_array_h):
+                ds = []
+                for k in range(n_array_d):
+                    ds.append(Neuron(activation=self.activation, input_num=self.kernel_size**2 * input_nums[2], lr=self.lr, weights=n_weights[k]))
+                hs.append(ds)
+            self.neurons.append(hs)
 
 
     #calcualte the output of all the neurons in the layer and return a vector with those values (go through the neurons and call the calcualte() method)      
     def calculate(self, input):
 
-        return 0                 
+        #Stores the output
+        output = np.zeros(np.shape(self.neurons))
+
+        for i in range(len(self.neurons)):
+            for j in range(len(self.neurons[i])):
+                for k in range(len(self.neurons[i][j])):
+                    output[i][j][k] = self.neurons[i][j][k].calculate(input[i:i+self.kernel_size,j:j+self.kernel_size].flatten())
+
+        return output                 
             
     #given the next layer's w*delta, should run through the neurons calling calcpartialderivative() for each (with the correct value), sum up its ownw*delta, and then update the wieghts (using the updateweight() method). I should return the sum of w*delta.          
     def calcwdeltas(self, wtimesdelta):
@@ -338,3 +359,21 @@ if __name__=="__main__":
                 print(f"    0 and 1: {np.around(N.calculate(np.array([0,1])),3)[0]}")
                 print(f"    1 and 0: {np.around(N.calculate(np.array([1,0])),3)[0]}")
                 print(f"    1 and 1: {np.around(N.calculate(np.array([1,1])),3)[0]}")
+
+    elif(sys.argv[2]=='conv'):
+
+        input = np.array([
+            [[0],[0],[0],[0],[0],[0],[0]],
+            [[0],[1],[0],[0],[0],[1],[0]],
+            [[0],[0],[0],[0],[0],[0],[0]],
+            [[0],[0],[0],[1],[0],[0],[0]],
+            [[0],[1],[0],[0],[0],[1],[0]],
+            [[0],[0],[1],[1],[1],[0],[0]],
+            [[0],[0],[0],[0],[0],[0],[0]]
+        ])
+
+        w1 = np.array([[0,0,1,1,0,0,0,1,1,0]])
+
+        N = NeuralNetwork(input_num=np.shape(input), loss=0, lr=float(sys.argv[1]))
+        N.addLayer('conv', num_kernel=1, kernel_size=3, activation=0, weights = w1)
+        print(N.calculate(input))
