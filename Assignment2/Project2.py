@@ -40,7 +40,6 @@ class Neuron:
         #Set last element to equal 1. This is for the bias.
         self.inputs[-1] = 1
         self.output = 0
-
         
      
     #This method returns the activation of the net
@@ -143,6 +142,7 @@ class Convolutional:
         self.lr = lr
         self.weights = weights
         self.neurons = []
+        self.input_nums = input_nums
 
         n_array_w = input_nums[0] - kernel_size + 1
         n_array_h = input_nums[1] - kernel_size + 1
@@ -179,22 +179,31 @@ class Convolutional:
             
     #given the next layer's w*delta, should run through the neurons calling calcpartialderivative() for each (with the correct value), sum up its ownw*delta, and then update the wieghts (using the updateweight() method). I should return the sum of w*delta.          
     def calcwdeltas(self, wtimesdelta):
+        wtd_matrix = np.zeros(self.input_nums)
 
-        return 0
+        for i in range(len(self.neurons)):
+            for j in range(len(self.neurons[i])):
+                for k in range(len(self.neurons[i][j])):
+                    wtd_matrix[i:i+self.kernel_size,j:j+self.kernel_size] += self.neurons[i][j][k].calcpartialderivative(wtimesdelta[i][j][k])[:-1].reshape(self.kernel_size,self.kernel_size, self.input_nums[2])
+
+        for i in range(len(self.neurons)):
+            for j in range(len(self.neurons[i])):
+                for k in range(len(self.neurons[i][j])):
+                    self.neurons[i][j][k].updateweight()
+
+        return wtd_matrix
 
 # A Flatten Layer Class
 class Flatten:
-    def __init__(self,):
-        pass
-
+    def __init__(self, input_nums=[5,5,3]):
+        self.input_nums = input_nums
+        self.numOfNeurons = input_nums[0] * input_nums[1] * input_nums[2]
 
     def calculate(self, input):
-
-        return 0                 
+        return input.flatten()
                    
     def calcwdeltas(self, wtimesdelta):
-
-        return 0
+        return wtimesdelta[:-1].reshape(self.input_nums)
 
 #An entire neural network        
 class NeuralNetwork:
@@ -270,7 +279,15 @@ class NeuralNetwork:
             layer = Convolutional(num_kernel, kernel_size, activation, input_num_for_layer, self.lr, weights)
 
         elif layer_type == 'flatten':
-            layer = Flatten()
+            # Figure out input num from current last layer
+            if len(self.layers) == 0:
+                input_num_for_layer = self.input_num
+            else:
+                w = len(self.layers[-1].neurons)
+                h = len(self.layers[-1].neurons[0])
+                d = self.layers[-1].num_kernel
+                input_num_for_layer = [w,h,d]
+            layer = Flatten(input_num_for_layer)
 
         else:
             #FullyConnected layer args: (self,numOfNeurons, activation, input_num, lr, weights=None)
@@ -376,4 +393,9 @@ if __name__=="__main__":
 
         N = NeuralNetwork(input_num=np.shape(input), loss=0, lr=float(sys.argv[1]))
         N.addLayer('conv', num_kernel=1, kernel_size=3, activation=0, weights = w1)
-        print(N.calculate(input))
+        N.addLayer('flatten')
+        N.addLayer('fc', numOfNeurons=3, activation=0)
+        N.addLayer('fc', numOfNeurons=1, activation=0)
+
+        for i in range(100):
+            print(N.train(input,[1]))
