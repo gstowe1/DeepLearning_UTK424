@@ -85,7 +85,10 @@ class Neuron:
         
     #Simply update the weights using the partial derivatives and the leranring weight
     def updateweight(self):
+        print("\t\tweights before update: ", self.weights)
+        print("\t\tpartial derivative: ", self.pd)
         self.weights = self.weights - self.pd * self.lr
+        print("\t\tweights after update: ", self.weights)
         
 #A fully connected layer        
 class FullyConnected:
@@ -180,15 +183,21 @@ class Convolutional:
     #given the next layer's w*delta, should run through the neurons calling calcpartialderivative() for each (with the correct value), sum up its ownw*delta, and then update the wieghts (using the updateweight() method). I should return the sum of w*delta.          
     def calcwdeltas(self, wtimesdelta):
         wtd_matrix = np.zeros(self.input_nums)
+        sum_old_wtds = wtimesdelta.sum(axis=2).sum(axis=1).sum(axis=0)
+        total_pd = np.zeros((self.num_kernel, (self.kernel_size * self.kernel_size) + 1))
 
         for i in range(len(self.neurons)):
             for j in range(len(self.neurons[i])):
                 for k in range(len(self.neurons[i][j])):
-                    wtd_matrix[i:i+self.kernel_size,j:j+self.kernel_size] += self.neurons[i][j][k].calcpartialderivative(wtimesdelta[i][j][k])[:-1].reshape(self.kernel_size,self.kernel_size, self.input_nums[2])
+                    wtd_matrix[i:i+self.kernel_size,j:j+self.kernel_size] += self.neurons[i][j][k].calcpartialderivative(
+                        wtimesdelta[i][j][k])[:-1].reshape(self.kernel_size,self.kernel_size, self.input_nums[2])
+                    total_pd[k] += self.neurons[i][j][k].calcpartialderivative(wtimesdelta[i][j][k])
 
         for i in range(len(self.neurons)):
             for j in range(len(self.neurons[i])):
                 for k in range(len(self.neurons[i][j])):
+                    print("\tNeuron: ", i, j, k)
+                    self.neurons[i][j][k].pd = total_pd[k] 
                     self.neurons[i][j][k].updateweight()
 
         return wtd_matrix
@@ -256,8 +265,10 @@ class NeuralNetwork:
         yp = self.calculate(x)
 
         delta = self.lossderiv(yp,y)
-
+        i = len(self.layers)
         for r_layer in reversed(self.layers):
+            print("Layer: ", i, " Type: ", r_layer.__class__.__name__)
+            i -= 1
             delta = r_layer.calcwdeltas(delta)
 
         return self.calculateloss(yp,y)
