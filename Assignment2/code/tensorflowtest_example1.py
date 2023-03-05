@@ -40,7 +40,7 @@ print('model output before:')
 print(model.predict(img))
 sgd = optimizers.SGD(learning_rate=100)
 model.compile(loss='MSE', optimizer=sgd, metrics=['accuracy'])
-for i in range(1000):
+for i in range(1):
     history=model.train_on_batch(img,output)
 print('model output after:')
 print(model.predict(img))
