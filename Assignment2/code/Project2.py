@@ -423,7 +423,7 @@ if __name__=="__main__":
 
     elif(sys.argv[2]=='example1'):
         # Load example weights
-        l1k1,l1b1,l2,l3b,input,output = generateExample1()
+        l1k1,l1b1,l2,l2b,input,output = generateExample1()
 
         # Set weights and biases for layer 1
         l1k1 = l1k1.reshape(3,3,1,1)
@@ -433,7 +433,7 @@ if __name__=="__main__":
         w1 = np.array([l1k1])
 
         # Set weights and biases for layer 2
-        l2 = np.append(l2,l3b)
+        l2 = np.append(l2,l2b)
         w2 = np.array([l2])
 
         N = NeuralNetwork(input_num=[1,5,5], loss = 0, lr=float(sys.argv[1]))
