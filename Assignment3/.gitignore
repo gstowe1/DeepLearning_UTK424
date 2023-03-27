@@ -1,2 +1,4 @@
 val/
 train/
+logs/
+.DS_Store
