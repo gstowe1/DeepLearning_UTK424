@@ -1,0 +1,27 @@
+Epoch 1
+Generated Text:
+lagoon 
+ didnt anybody tell her 
+ sundays on the phone to monday 
+ tuesdays on the phone to me 
+ she said shed always been a dancer 
+ she worked at 15 clubs a day 
+ and though she thought i knew the answer 
+ and though she knew the answer 
+ well i could not have a day 
+ well i knew the answer 
+ well i could not have a fool on the hill 
+ well i never seems to the hill 
+ man i tell you man with the foolish grin is keeping perfectly still 
+ and never know him 
+ and they can see 
+ they can see 
+ they can see 
+ that hes just a fool that hes just a fool 
+ and he never gives an answer 
+ and the fool on the hill 
+ sees the sun going down 
+ and the
+Accuracy: 0.5701628923416138 Loss: 1.9290947914123535 Total Time: 126.69433236122131 seconds
+
+

@@ -1,0 +1,137 @@
+Epoch 10
+Generated Text:
+white book 
+ in a cap she looked much older 
+ and the bag across her shoulder 
+ made her look a little like a military man 
+ lovely rita meter maid 
+ may i inquire discreetly 
+ when are you free 
+ to take some tea with me 
+ took her out and tried to win her 
+ had a laugh and over dinner 
+ told her i would really like to see her again 
+ got the bill and rita paid it 
+ took her home i would really american bulletheaded saxon saxon mothers saxon mothers saxon mothers son 
+ mothers son 
+ mothers son 
+ what did dark children mothers laundromat 
+ hey bungalow anyhow 
+ what did 
+ hey bungalow bill 
+ what did dark kill 
+ mother mary kill 
+ bungalow bill 
+ what did bungalow bill 
+ deep in the jungle where the mighty tiger
+Accuracy: 0.9346465468406677 Loss: 0.23944103717803955 Total Time: 1743.1399652957916 seconds
+
+
+Epoch 20
+Generated Text:
+banker sitting waiting for a trim 
+ and then the fireman rushes in 
+ from the pouring rain very strange 
+ penny lane is in my ears and in my eyes 
+ there beneath the blue suburban skies 
+ i sit and meanwhile back 
+ penny lane is in my ears and in my eyes 
+ there beneath the blue suburban skies 
+ penny lane 
+ piggies 
+ have you seen the little piggies 
+ crawling in the dirt 
+ and for all the little piggies 
+ life is getting worse 
+ always having dirt to play around in 
+ have you seen the bigger piggies 
+ in their starched white shirts 
+ stirring up the dirt 
+ always have clean shirts to play around in 
+ in their styes with all their backing 
+ they dont care what goes on around 
+ in their eyes theres something lacking 
+ what
+Accuracy: 0.9442896246910095 Loss: 0.20044802129268646 Total Time: 3471.9283435344696 seconds
+
+
+Epoch 30
+Generated Text:
+im in love with you 
+ im so glad you came here it wont be the same now when im with you 
+ one after 909 
+ my baby says shes travling on the one after 909 
+ i said move over honey im travelling on that line 
+ i said move over once move over twice 
+ come on baby dont be cold as ice 
+ i said were travling on the one after 9 0 
+ i said were travling on the one after 9 0 
+ i said were travling on the one after 909 
+ only a northern song 
+ if youre listening to this song 
+ you may think the chords are going wrong 
+ but theyre not 
+ he just wrote it like that 
+ it doesnt really matter what chords i play 
+ what words i say or time of day it is 
+
+Accuracy: 0.9485242366790771 Loss: 0.1836659163236618 Total Time: 5206.406163215637 seconds
+
+
+Epoch 40
+Generated Text:
+park 
+ shaves in the dark trying to save paper 
+ sleeps in a hole in the road 
+ saving up to buy some clothes 
+ keeps a tenbob note up his nose 
+ such a mean old man 
+ such a mean old man 
+ his sister pam works in a shop 
+ she never stops shes a gogetter 
+ takes him out to look at the queen 
+ only place that hes ever been 
+ always shouts out something obscene 
+ such a dirty old man 
+ dirty old man 
+ medley kansas city hey hey hey 
+ ah kansas city 
+ going to get my baby back home 
+ im going to kansas city 
+ going to get my baby back home 
+ well its a long long time too 
+ my babys been gone 
+ ah kansas city 
+ going get my baby one time 
+ im
+Accuracy: 0.951178789138794 Loss: 0.17263750731945038 Total Time: 6951.060561656952 seconds
+
+
+Epoch 50
+Generated Text:
+institution 
+ well you know 
+ you better free your mind instead 
+ but if you go carrying pictures of chairman mao 
+ you aint going to make it with anyone anyhow 
+ dont you know know its gonna be alright 
+ alright 
+ alright 
+ alright 
+ repeat till fade 
+ rock and roll music 
+ just let me hear some of that rock and roll music 
+ any old way you choose it 
+ its got a back beat you cant lose it 
+ any old time you use it 
+ its gotta be rock roll music 
+ if you wanna dance with me 
+ if you wanna dance with me 
+ way down south they gave a jubilee 
+ the jokey folks they had a jamboree 
+ theyre drinkin home brew from a water cup 
+ the folks dancin got all shook up 
+ and started playin that
+Accuracy: 0.9526805877685547 Loss: 0.1659347265958786 Total Time: 8680.100900173187 seconds
+
+

@@ -1,0 +1,29 @@
+Epoch 1
+Generated Text:
+hates to see me say 
+ i see me cry 
+ i see you say 
+ i see you say 
+ i will hear you say that i will hear you say 
+ youll be happy cause you say 
+ youll be happy 
+ i will never leave me say 
+ if you and if you know that i will love me 
+ if you dont want to last 
+ i will remember you will love you by 
+ i will love her 
+ i think of things she said 
+ when i get her 
+ for her 
+ shes mine 
+ and i think of things she said her 
+ she said her things she said her 
+ she said her 
+ only to be dead 
+ and i know that living with me is to be free 
+ is out tonight 
+ shes thinking of her 
+ shes got
+Accuracy: 0.5826221704483032 Loss: 1.8848795890808105 Total Time: 176.5903513431549 seconds
+
+

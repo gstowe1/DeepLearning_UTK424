@@ -1,0 +1,259 @@
+Epoch 10
+Generated Text:
+breast 
+ wonder how you manage to feed the rest 
+ see how they run 
+ lady madonna lying on the bed 
+ listen to the music playing in your head 
+ tuesday afternoon is never ending 
+ wednesday morning papers didnt come 
+ thursday night you stockings needed mending 
+ see how they run 
+ lady madonna children at your feet 
+ wonder how you manage to make ends meet 
+ let it be 
+ when i find myself in times of trouble 
+ mother mary comes to me 
+ speaking words of wisdom let it be 
+ and in my hour of darkness 
+ she is standing right in front of me 
+ speaking words of wisdom let it be 
+ let it be let it be let it be 
+ and when the broken hearted people 
+ living in the world agree 
+ there will be an answer
+Accuracy: 0.9345349073410034 Loss: 0.24050100147724152 Total Time: 1263.5590879917145 seconds
+
+
+Epoch 20
+Generated Text:
+blink 
+ i wonder should i get up and fix myself a drink 
+ nonono 
+ im so tired i dont know what to do 
+ im so tired my mind is set on you 
+ i wonder should i call you but i know what youd do 
+ youd say im putting you on 
+ but its no joke its doing me harm 
+ you know i cant sleep i cant stop my brain 
+ you know its three weeks im going insane 
+ you know id give you everything ive got 
+ for a little peace of mind 
+ im so tired im feeling so upset 
+ although im so tired ill have another cigarette 
+ and curse sir walter raleigh 
+ walter raleigh 
+ he was such a stupid guest 
+ ive got a feeling deep inside 
+ oh yeah oh yeah 
+ ive got a feeling a
+Accuracy: 0.9434142112731934 Loss: 0.2059769183397293 Total Time: 2527.231454849243 seconds
+
+
+Epoch 30
+Generated Text:
+slip away 
+ when i get near you 
+ the games begin to drag me down 
+ its all right 
+ ill make you maybe next time around 
+ but if i seem to act unkind 
+ its only me its not my mind 
+ that is confusing things 
+ i want to tell you 
+ i feel hung up but i dont know why 
+ i dont mind 
+ i could wait forever ive got time 
+ sometimes i wish i knew you well 
+ then i could speak my mind and tell you 
+ maybe youd understand 
+ i want to tell you 
+ i feel hung up but i dont know why 
+ i dont mind 
+ i could wait forever ive got time ive got time ive got time ive got time ive got time 
+ i want you shes so heavy 
+ i want you 
+
+Accuracy: 0.9468984603881836 Loss: 0.19161036610603333 Total Time: 3823.4732151031494 seconds
+
+
+Epoch 40
+Generated Text:
+custard dripping from a dead dogs eye 
+ crabalocker fishwife pornographic priestess 
+ boy you been a naughty girl you let your knickers down 
+ i am the eggman they are the eggmen 
+ i am the walrus goo goo gjoob 
+ sitting in an english garden waiting for the sun 
+ if the sun dont come you get a tan 
+ i am the walrus goo goo gjoob 
+ i am the walrus goo goo gjoob ggoo goo gjoob 
+ expert textpert choking smokers 
+ dont you think the joker laughs at you 
+ see how they smile like pigs in a sty 
+ see how they snide 
+ im crying 
+ semolina pilchard climbing up the eiffel tower 
+ elementary penguin singing hari krishna 
+ man you should have seen them kicking edgar allan poe 
+ i am the eggman they are the eggmen 
+ i am the walrus
+Accuracy: 0.948948323726654 Loss: 0.1818699985742569 Total Time: 5113.965126037598 seconds
+
+
+Epoch 50
+Generated Text:
+running home 
+ yeah thats all i gotta do 
+ and when i i want to kiss you yeah 
+ all i gotta do 
+ is whisper in your ear 
+ the words you long to hear 
+ and ill be kissin you 
+ and the same goes for me 
+ whenever you want me at all 
+ ill be here yes i will whenever you call 
+ you just gotta call on me yeah 
+ you just gotta call on me 
+ and when i i want to kiss you yeah 
+ all i gotta do 
+ is call you on the phone 
+ and youll come running home 
+ yeah thats all i gotta do 
+ and the same goes for me 
+ whenever you want me at all 
+ ill be here yes i will whenever you call 
+ you just gotta call on me yeah 
+ you
+Accuracy: 0.9502822756767273 Loss: 0.17662093043327332 Total Time: 6444.13707280159 seconds
+
+
+Epoch 60
+Generated Text:
+belle 
+ these are words that go together well 
+ my michelle 
+ michelle ma belle 
+ sont les mots qui vont tres bien ensemble 
+ tres bien ensemble 
+ i love you i love you i love you 
+ thats all i want to say 
+ until i find a way 
+ i will say the only words i know that 
+ youll understand 
+ i need you i need you i need you 
+ i need to make you see 
+ oh what you mean to me 
+ until i do im hoping you will 
+ know what i mean 
+ i love you 
+ i want you i want you i want you 
+ i think you know by now 
+ ill get to you somehow 
+ until i do im telling you so 
+ youll understand 
+ i will say the only words i know that 
+
+Accuracy: 0.9512209892272949 Loss: 0.1727851778268814 Total Time: 7794.209453821182 seconds
+
+
+Epoch 70
+Generated Text:
+images of broken light which dance before me like a million eyes 
+ that call me on and on across the universe 
+ thoughts meander like a restless wind inside a letter box they 
+ tumble blindly as they make their way 
+ across the universe 
+ jai guru de va om 
+ nothings gonna change my world 
+ nothings gonna change my world 
+ sounds of laughter shades of earth are ringing 
+ through my open views inviting and inciting me 
+ limitless undying love which shines around me like a 
+ million suns it calls me on and on 
+ across the universe 
+ jai guru de va om 
+ nothings gonna change my world 
+ nothings gonna change my world 
+ act naturally 
+ theyre gonna put me in the movies 
+ theyre gonna make a big star out of me 
+ well make a film about a
+Accuracy: 0.952190101146698 Loss: 0.16844986379146576 Total Time: 9152.326124668121 seconds
+
+
+Epoch 80
+Generated Text:
+close mine 
+ good night sleep tight 
+ now the moon begins to shine 
+ good night sleep tight 
+ dream sweet dreams for me 
+ dream sweet dreams for you 
+ close your eyes and ill close mine 
+ good night sleep tight 
+ now the sun turns out his light 
+ good night sleep tight 
+ dream sweet dreams for me 
+ dream sweet dreams for you 
+ good night good night everybody 
+ everybody everywhere 
+ good night 
+ got to get you into my life 
+ i was alone i took a ride 
+ i didnt know what i would find there 
+ another road where maybe i could see another kind of mind there 
+ ooh then i suddenly see you 
+ ooh did i tell you i need you 
+ every single day of my life 
+ you didnt run you didnt lie 
+ you
+Accuracy: 0.9530696868896484 Loss: 0.16522186994552612 Total Time: 10516.466124773026 seconds
+
+
+Epoch 90
+Generated Text:
+collapsed in the corner 
+ now the doctor came in stinking of gin 
+ and proceeded to lie on the table 
+ he said rocky you met your match 
+ and rocky said doc its only a scratch 
+ and ill be better ill be better doc as soon as i am able 
+ now rocky raccoon he fell back in his room 
+ only to find gideons bible 
+ gideon checked out and he left it no doubt 
+ to help with good rockys revival 
+ roll over beethoven 
+ well gonna write a little letter 
+ gonna mail it to my local dj 
+ its a rockin little record 
+ i want my jockey to play 
+ roll over beethoven 
+ i gotta hear it again today 
+ you know my temperatures risin 
+ and the jukeboxs blowin a fuse 
+ my hearts beatin rhythm 
+ and my soul
+Accuracy: 0.953210175037384 Loss: 0.16383114457130432 Total Time: 11906.416963100433 seconds
+
+
+Epoch 100
+Generated Text:
+ooh 
+ i dug a pony 
+ well you can syndicate any boat you row 
+ yes you can syndicate any boat you row 
+ i told you all i want is you 
+ evrything has got to bejust like you want it to 
+ because 
+ dig it 
+ like a rolling stone 
+ a like a rolling stone 
+ like the fbi and the cia 
+ and the bbcbb king 
+ and doris day 
+ matt busby 
+ dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig it dig
+Accuracy: 0.9538812637329102 Loss: 0.16187456250190735 Total Time: 13323.360947847366 seconds
+
+

@@ -1,0 +1,126 @@
+Epoch 10
+Generated Text:
+now 
+ i know ill never lose affection 
+ for people and things that went before 
+ i know ill often stop and think about them 
+ in my life i love you more 
+ it wont be long yeh youve got time 
+ when i think of things you more 
+ and kept out of sight 
+ but other day i saw you 
+ yes im always know that its true 
+ cause you like me too much and i like you 
+ but i really got it you know its true 
+ cause you like me too much and i like you 
+ youve tried before to leave me 
+ but you havent got the nerve 
+ to walk out and make me lonely 
+ which is all that i deserve 
+ youll never leave me and you know its true 
+ cause you like me too much and
+Accuracy: 0.9351632595062256 Loss: 0.23857295513153076 Total Time: 1236.5649600028992 seconds
+
+
+Epoch 20
+Generated Text:
+hobnail boots 
+ lying with his eyes while his hands are busy 
+ working overtime 
+ a soap impression of his wife which he ate 
+ and donated to the nation trust 
+ i need a fix cause im going down 
+ down to the bits that i left uptown 
+ i need a fix cause im going down 
+ mother superior jump the gun 
+ mother superior jump the gun 
+ mother superior jump the gun 
+ mother superior jump the gun 
+ happiness is a warm gun 
+ happiness is a warm gun 
+ happiness is a warm gun 
+ happiness is a warm gun 
+ when i hold you in my arms 
+ and i feel my finger on your trigger 
+ i know no one can do me no harm 
+ because happiness is a warm gun 
+ yes it is 
+ hello hello goodbye 
+ you
+Accuracy: 0.9435104727745056 Loss: 0.2053060084581375 Total Time: 2454.8429794311523 seconds
+
+
+Epoch 30
+Generated Text:
+pay 
+ magical mystery tour 
+ roll up roll up for the mystery tour 
+ roll up and thats an invitation roll up for the mystery tour 
+ roll up to make a reservation roll up for the mystery tour 
+ the magical mystery tour is waiting to take you away 
+ waiting to take you away 
+ roll up roll up for the mystery tour 
+ roll up roll up for the mystery tour 
+ roll up weve got everything you need roll up for the mystery tour 
+ roll up satisfaction guaranteed roll up for the mystery tour 
+ the magical mystery tour is hoping to take you away 
+ hoping to take you away 
+ roll up roll up for the mystery tour 
+ roll up roll up for the mystery tour 
+ roll up roll up for the mystery tour 
+ roll up and thats an invitation
+Accuracy: 0.9469761252403259 Loss: 0.1913803666830063 Total Time: 3666.451151371002 seconds
+
+
+Epoch 40
+Generated Text:
+listen to my pleas 
+ is there anything i can do 
+ cause i really cant stand it im so in love with you 
+ tell me why you cried and why you lied to me 
+ thank you girl 
+ oh oh 
+ youve been good to me 
+ you made me glad 
+ when i was blue 
+ and eternally ill always be 
+ in love with you 
+ and all i gotta do 
+ is thank you girl thank you girl 
+ i could tell the world 
+ a thing or two about our love 
+ i know little girl 
+ only a fool would doubt our love 
+ and all i gotta do 
+ is thank you girl thank you girl 
+ thank you girl for loving me 
+ the way that you do way that you do 
+ thats the kind of love 
+ that is
+Accuracy: 0.9492838382720947 Loss: 0.1819354146718979 Total Time: 4907.882239341736 seconds
+
+
+Epoch 50
+Generated Text:
+pornographic priestess 
+ boy you been a naughty girl you let your knickers down 
+ i am the eggman they are the eggmen 
+ i am the walrus goo goo gjoob 
+ sitting in an english garden waiting for the sun 
+ if the sun dont come you get a tan 
+ from standing in the english rain 
+ i am the eggman they are the eggmen 
+ i am the walrus goo goo gjoob ggoo goo gjoob 
+ expert textpert choking smokers 
+ dont you think the joker laughs at you 
+ see how they smile like pigs in a sty 
+ see how they snide 
+ im crying 
+ semolina pilchard climbing up the eiffel tower 
+ elementary penguin singing hari krishna 
+ man you should have seen them kicking edgar allan poe 
+ i am the eggman they are the eggmen 
+ i am the walrus goo goo
+Accuracy: 0.9507583379745483 Loss: 0.17581702768802643 Total Time: 6182.828451633453 seconds
+
+

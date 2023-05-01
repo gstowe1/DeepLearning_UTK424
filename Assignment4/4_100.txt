@@ -1,0 +1,273 @@
+Epoch 10
+Generated Text:
+arent clear 
+ you dont sound differnt ive learned the game 
+ im looking through you youre not the same 
+ why tell me why did you not treat me right 
+ love has a nasty habit of disappearing overnight 
+ youre thinking of me the same old way 
+ you were above me but not today 
+ the only difference is youre down there 
+ im looking through you any other way 
+ why tell me why did you not treat me right 
+ love has a nasty habit of disappearing overnight 
+ im looking through you where did you go 
+ i thought i knew you what did i know 
+ you dont look different but you have changed 
+ im looking through you youre not the same 
+ im only sleeping 
+ when i wake up early in the morning 
+ lift my head im still yawning 
+
+Accuracy: 0.9337494969367981 Loss: 0.24203984439373016 Total Time: 2003.378966331482 seconds
+
+
+Epoch 20
+Generated Text:
+wants to know him 
+ they can see that hes just a fool 
+ and he never gives an answer 
+ but the fool on the hill 
+ sees the sun going down 
+ and the eyes in his head 
+ see the world spinning around 
+ well on his way his head in a cloud 
+ the man of a thousand voices talking percetly loud 
+ but nobody ever hears him 
+ or the sound he appears to make 
+ and he never seems to notice 
+ but the fool on the hill 
+ nobody seems to like him 
+ they can tell what he wants to do 
+ and he never shows his feelings 
+ but the fool on the hill 
+ the inner light 
+ without going out of my door 
+ i can know all things of earth 
+ with out looking out of my window 
+
+Accuracy: 0.9444728493690491 Loss: 0.20047517120838165 Total Time: 4011.8648521900177 seconds
+
+
+Epoch 30
+Generated Text:
+verzeiht sie dir 
+ sie liebt dich 
+ denn mit dir allein kann sie nur glucklich sein 
+ slow down 
+ well come on pretty baby wont you walk with me 
+ come on pretty baby wont you talk with me 
+ come on pretty baby give me one more chance 
+ try to save our romance 
+ slow down baby now youre movin way too fast 
+ you gotta gimme little lovin gimme little lovin 
+ ow if you want our love to last 
+ well i used to walk you home baby after school 
+ carry your books home too 
+ but now you got a boyfriend down the street 
+ baby what youre tryin to do 
+ you better slow down 
+ baby now youre movin way too fast 
+ you gotta gimme little lovin gimme little lovin 
+ bbbbb if you want our love to last 
+
+Accuracy: 0.9484562873840332 Loss: 0.18368402123451233 Total Time: 6022.569329500198 seconds
+
+
+Epoch 40
+Generated Text:
+called himself dan 
+ were in the next room at the hoe down 
+ rocky burst in and grinning a grin 
+ he said danny boy this is a showdown 
+ but daniel was hothe drew first and shot 
+ and rocky in the corner 
+ now the doctor came in stinking of gin 
+ and proceeded to lie on the table 
+ he said rocky you met your match 
+ and rocky said doc its only a scratch 
+ and ill be better ill be better doc as soon as i am able 
+ now rocky raccoon he fell back in his room 
+ only to find gideons bible 
+ gideon checked out and he left it no doubt 
+ to help with good rockys revival 
+ roll over beethoven 
+ well gonna write a little letter 
+ gonna mail it to my local dj 
+ its a rockin little
+Accuracy: 0.9509081244468689 Loss: 0.1735197752714157 Total Time: 8073.466633081436 seconds
+
+
+Epoch 50
+Generated Text:
+imeme mine 
+ all i can hear i me mine i me mine i me mine 
+ even those tears i me mine i me mine 
+ noones frightened of playing it 
+ evryones saying it 
+ flowing more freely than wine 
+ all thru the day i me mine 
+ imeme mine imeme mine 
+ imeme mine imeme mine 
+ all i can hear i me mine i me mine i me mine i me mine 
+ even those tears i me mine i me mine 
+ noones frightened of playing it 
+ evryones saying it 
+ flowing more freely than wine 
+ all thru the day i me mine 
+ imeme mine imeme mine 
+ imeme mine imeme mine 
+ all i can hear i me mine i me mine i me mine i me mine 
+ even those tears i me mine i me mine 
+ noones frightened
+Accuracy: 0.9524628520011902 Loss: 0.16688460111618042 Total Time: 10083.987149953842 seconds
+
+
+Epoch 60
+Generated Text:
+riding nowhere 
+ spending someones 
+ hard earned pay 
+ two of us sunday driving 
+ not arriving 
+ on our way back home 
+ were on our way home 
+ were on our way home 
+ were going home 
+ two of us sending postcards 
+ writing letters 
+ on my wall 
+ you and me burning matches 
+ lifting latches 
+ on our way back home 
+ were on our way home 
+ were on our way home 
+ were on our way home 
+ were going home 
+ you and i have memories 
+ longer than the road that stretches out ahead 
+ two of us wearing raincoats 
+ standing so low 
+ in the sun 
+ you and me chasing paper 
+ getting nowhere 
+ on our way back home 
+ were on our way home 
+ were on our way home 
+ were going home 
+
+Accuracy: 0.9538807272911072 Loss: 0.16047470271587372 Total Time: 12224.03370809555 seconds
+
+
+Epoch 70
+Generated Text:
+mondays child has learned to tie his bootlace 
+ see how they run 
+ lady madonna baby at your breast 
+ wonder how you manage to feed the rest 
+ see how they run 
+ lady madonna lying on the bed 
+ listen to the music playing in your head 
+ tuesday afternoon is never ending 
+ wednesday morning papers didnt come 
+ thursday night you stockings needed mending 
+ see how they run 
+ lady madonna children at your feet 
+ wonder how you manage to make ends meet 
+ let it be 
+ when i find myself in times of trouble 
+ mother mary comes to me 
+ speaking words of wisdom let it be 
+ and in my hour of darkness 
+ she your name we know 
+ she said standing wrong 
+ when i was a boy everything was right 
+ i said even though you know
+Accuracy: 0.9546501636505127 Loss: 0.1578049212694168 Total Time: 14423.80218219757 seconds
+
+
+Epoch 80
+Generated Text:
+able 
+ now rocky raccoon he fell back in his room 
+ only to find gideons bible 
+ gideon checked out and he left it no doubt 
+ to help with good rockys revival 
+ roll over beethoven 
+ well gonna write a little letter 
+ gonna mail it to my local dj 
+ its a rockin little record 
+ i want my jockey to play 
+ roll over beethoven 
+ i gotta hear it again today 
+ you know my fiddle 
+ roll over beethoven 
+ and tell tchaikovsky the news 
+ i got it you know she winks like a glow worm 
+ dance like a spinnin top 
+ she got a crazy partner 
+ oughta see em reel an rock 
+ long as shes got a dime 
+ the music will never stop 
+ roll over beethoven 
+ roll over beethoven 
+ roll over beethoven 
+ roll over
+Accuracy: 0.9553387761116028 Loss: 0.15403766930103302 Total Time: 16626.122886657715 seconds
+
+
+Epoch 90
+Generated Text:
+introduce to you 
+ the one and only billy shears 
+ and sgt peppers lonely hearts club band 
+ she came in through the bathroom window 
+ she came in through the bathroom window 
+ protected by a silver spoon 
+ but now she sucks her thumb and wanders 
+ by the banks of her own lagoon 
+ didnt anybody tell her 
+ didnt anybody see 
+ sundays on the phone to monday 
+ tuesdays on the phone to me 
+ she said shed always been a dancer 
+ she worked at 15 clubs a day 
+ and though she thought i knew the answer 
+ well i knew what i could not say 
+ and so i quit the police department 
+ and got myself a steady job 
+ and though she tried her best to help me 
+ she could steal but she could not rob 
+ didnt anybody
+Accuracy: 0.9558858275413513 Loss: 0.15207451581954956 Total Time: 18803.7050178051 seconds
+
+
+Epoch 100
+Generated Text:
+henry the horse dances the waltz 
+ the band begins at ten to six 
+ when mr k performs his tricks without a sound 
+ and mr h will demonstrate 
+ ten summersets hell undertake on solid ground 
+ having been some days in preparation 
+ a splendid time is guaranteed for all 
+ and tonight mr kite is topping the bill 
+ birthday 
+ you say its your birthday 
+ its my birthday tooyeah 
+ they say its your birthday 
+ were gonna have a good time 
+ im glad its your birthday 
+ happy birthday to you 
+ yes were going to a party party 
+ yes were going to a party party 
+ yes were going to a party party 
+ i would like you to dancebirthday 
+ think its your birthday 
+ happy birthday to you 
+ blackbird 
+ blackbird singing in the dead of night 
+
+Accuracy: 0.9564926028251648 Loss: 0.14970870316028595 Total Time: 21028.842777252197 seconds
+
+
