@@ -2,9 +2,10 @@
 
 import pandas as  pd
 import os
+import numpy as np
 
 # read in the csv files
-dir = "data"
+dir = "Extracted"
 
 dfs = []
 columns = []
@@ -83,7 +84,6 @@ for filename in os.listdir(dir):
         # Drop rows that have duplicate Generator Ids
         df = df[~df.index.duplicated(keep='first')]
 
-
         print(filename, df.shape)
         print(df.columns)
         dfs.append(df)
@@ -92,9 +92,20 @@ for filename in os.listdir(dir):
 df = pd.concat(dfs, axis=1, join='outer')
 # Transpose the dataframe so the the colunmns are the Generator Ids
 df = df.transpose()
+# Make all values numeric
+df = df.apply(pd.to_numeric, errors='coerce')
+# Replace all 0 with NaN
+df = df.replace(0, np.nan)
+# Replace all . with NaN
+df = df.replace('.', np.nan)
 # Convert the index to a datetime
 df.index = pd.to_datetime(df.index)
 # Sort the rows by the index
 df = df.sort_index()
+# Remove any cols that have all nans
+empty_cols = df.columns[df.isna().all()]
+df = df.drop(empty_cols, axis=1)
+
+
 # Save the dataframe to a csv
 df.to_csv('combined.csv')
