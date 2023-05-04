@@ -41,7 +41,7 @@ class windowGenerator():
             # Create the windows
             for j in range(len(series) - self.total_window_size):
                 self.X.append(series[j:j+self.input_width].to_numpy())
-                self.Y.append(series[j+self.input_width:j+self.total_window_size].to_numpy())
+                self.Y.append(series[j+self.input_width:j+self.total_window_size].to_numpy()[0])
 
         # Convert the Ys to 1D array
         self.Y = np.array(self.Y)
