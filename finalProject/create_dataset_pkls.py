@@ -35,11 +35,16 @@ class windowGenerator():
             series = data[col][first_index:last_index+1]
             # Interpolate the data
             series = series.interpolate(method='linear', limit_direction='both')
+            # Min Max Scale the data
+            series = (series - series.min()) / (series.max() - series.min())
 
             # Create the windows
             for j in range(len(series) - self.total_window_size):
-                self.X.append(series[j:j+self.input_width].values)
-                self.Y.append(series[j+self.input_width:j+self.total_window_size].values)
+                self.X.append(series[j:j+self.input_width].to_numpy())
+                self.Y.append(series[j+self.input_width:j+self.total_window_size].to_numpy())
+
+        # Convert the Ys to 1D array
+        self.Y = np.array(self.Y)
 
 window_obj = windowGenerator(df)
 
