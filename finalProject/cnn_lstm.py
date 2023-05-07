@@ -17,24 +17,25 @@ class CNN_LSTM:
         return tf.keras.layers.MaxPool1D(name=name)
 
     def lstm(self, name=None):
-        lstm = tf.keras.layers.LSTM(128, name=name, return_sequences=True, activation='relu')
+        lstm = tf.keras.layers.LSTM(128, name=name, return_sequences=False, activation='relu')
         return lstm
 
     def fc(self, name=None):
-        return tf.keras.layers.Dense(1,activation='sigmoid' ,name=name)
+        return tf.keras.layers.Dense(1,activation='linear' ,name=name)
 
     def create_model(self):
         input = self.input("Input Layer")
-        # conv1 = self.conv("Conv1")(input)
-        conv2 = self.conv("Conv2")(input)
-        # maxPool = self.max("MaxPool")(conv2)
+        conv1 = self.conv("Conv1")(input)
+        conv2 = self.conv("Conv2")(conv1)
+        maxPool = self.max("MaxPool")(conv2)
 
-        lstm1 = self.lstm("LSTM1")(conv2)
-        # lstm1 = self.lstm("LSTM1")(maxPool)
-        lstm2 = self.lstm("LSTM2")(lstm1)
-        lstm3 = self.lstm("LSTM3")(lstm2)
+        # lstm1 = self.lstm("LSTM1")(conv2)
+        lstm1 = self.lstm("LSTM1")(maxPool)
+        # lstm2 = self.lstm("LSTM2")(lstm1)
+        # lstm3 = self.lstm("LSTM3")(lstm2)
 
-        flat = tf.keras.layers.Flatten()(lstm3)
+        # flat = tf.keras.layers.Flatten()(lstm3)
+        flat = tf.keras.layers.Flatten()(lstm1)
         fc = self.fc("FC")(flat)
         # fc = self.fc("FC")(lstm3)
         model = tf.keras.models.Model(inputs=input, outputs=fc)
