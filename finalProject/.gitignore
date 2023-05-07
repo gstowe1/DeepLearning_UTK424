@@ -1,6 +1,8 @@
 /csv
 /Data
 /Extracted
+/__pycache__
+/logs
 .DS_Store
 X.pkl
 Y.pkl
