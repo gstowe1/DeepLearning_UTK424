@@ -1,12 +1,11 @@
 import tensorflow as tf
-
+import numpy as np
 class CNN_LSTM:
     def __init__(self):
         pass
 
     def input(self, name=None):
         input = tf.keras.layers.Input(shape=(12,1), name=name)
-        # reshaped_input = tf.reshape(input, [-1, 12, 1])  # reshape to 3D array
         return input
 
     def conv(self, name=None):
@@ -28,16 +27,11 @@ class CNN_LSTM:
         conv1 = self.conv("Conv1")(input)
         conv2 = self.conv("Conv2")(conv1)
         maxPool = self.max("MaxPool")(conv2)
-
-        # lstm1 = self.lstm("LSTM1")(conv2)
         lstm1 = self.lstm("LSTM1")(maxPool)
-        # lstm2 = self.lstm("LSTM2")(lstm1)
-        # lstm3 = self.lstm("LSTM3")(lstm2)
+ 
 
-        # flat = tf.keras.layers.Flatten()(lstm3)
-        flat = tf.keras.layers.Flatten()(lstm1)
-        fc = self.fc("FC")(flat)
-        # fc = self.fc("FC")(lstm3)
+        fc = self.fc("FC")(lstm1)
+
         model = tf.keras.models.Model(inputs=input, outputs=fc)
 
         return model
