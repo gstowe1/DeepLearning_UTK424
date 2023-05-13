@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
-class CNN_LSTM:
+
+class _MODEL:
     def __init__(self):
         pass
 
@@ -19,6 +20,10 @@ class CNN_LSTM:
         lstm = tf.keras.layers.LSTM(128, name=name, return_sequences=False, activation='relu')
         return lstm
 
+    def dropout(self, name=None, amount=0.1):
+        dropout = tf.keras.layers.Dropout(amount)
+        return dropout
+
     def fc(self, name=None):
         return tf.keras.layers.Dense(1,activation='linear' ,name=name)
 
@@ -28,9 +33,10 @@ class CNN_LSTM:
         conv2 = self.conv("Conv2")(conv1)
         maxPool = self.max("MaxPool")(conv2)
         lstm1 = self.lstm("LSTM1")(maxPool)
+        dropout = self.dropout("DROPOUT1")(lstm1)
  
 
-        fc = self.fc("FC")(lstm1)
+        fc = self.fc("FC")(dropout)
 
         model = tf.keras.models.Model(inputs=input, outputs=fc)
 
